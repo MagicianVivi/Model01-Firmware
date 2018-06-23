@@ -125,7 +125,7 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { BEPO, QWERTY, NUMPAD, FUNCTION }; // layers
+enum { BEPO, NUMPAD, FUNCTION }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -134,33 +134,18 @@ enum { BEPO, QWERTY, NUMPAD, FUNCTION }; // layers
 
 KEYMAPS(
   [BEPO] = KEYMAP_STACKED
-  (___,               Key_frb_Quote,   Key_frb_DeOQuote, Key_frb_DeCQuote, Key_frb_Oparenthesi, Key_frb_Cparenthesi, Key_frb_Dollar,
-   Key_frb_Z, Key_frb_B,       Key_frb_E_Acute,  Key_frb_P,        Key_frb_O,           Key_frb_E_Grave,     Key_Tab,
-   Key_frb_W,         Key_frb_A,       Key_frb_U,        Key_frb_I,        Key_frb_E,           Key_frb_Comma,
+  (___,               LSHIFT(Key_frb_Quote),   LSHIFT(Key_frb_DeOQuote), LSHIFT(Key_frb_DeCQuote), LSHIFT(Key_frb_Oparenthesi), LSHIFT(Key_frb_Cparenthesi), Key_LEDEffectNext,
+   Key_frb_Z, Key_frb_B,       Key_frb_E_Acute,  Key_frb_P,        Key_frb_O,           Key_frb_E_Grave,     ___,
+   Key_Tab,         Key_frb_A,       Key_frb_U,        Key_frb_I,        Key_frb_E,           Key_frb_Comma,
    Key_frb_E_umlaut,  Key_frb_A_Grave, Key_frb_Y,        Key_frb_X,        Key_frb_Period,      Key_frb_K,           Key_Escape,
-   OSM(LeftControl),   Key_Enter,  OSM(LeftGui),    OSM(LeftShift),
+   OSM(LeftControl),   Key_Spacebar,  OSM(LeftGui),    OSM(LeftShift),
    ShiftToLayer(FUNCTION),
 
-   Key_frb_Percent,   Key_frb_At,         Key_frb_Plus, Key_frb_Minus, Key_frb_Slash, Key_frb_Multiply, LockLayer(NUMPAD),
-   Key_Backspace,         Key_frb_Circumflex, Key_frb_V,    Key_frb_D,     Key_frb_L,     Key_frb_J,        Key_frb_Equals,
+   Key_Insert,   LSHIFT(Key_frb_At),         LSHIFT(Key_frb_Plus), LSHIFT(Key_frb_Minus), LSHIFT(Key_frb_Slash), LSHIFT(Key_frb_Multiply), LockLayer(NUMPAD),
+   ___,         Key_frb_Circumflex, Key_frb_V,    Key_frb_D,     Key_frb_L,     Key_frb_J,        Key_frb_W,
                       Key_frb_C,          Key_frb_T,    Key_frb_S,     Key_frb_R,     Key_frb_N,        Key_frb_M,
-   Key_LEDEffectNext, Key_frb_Question,   Key_frb_Q,    Key_frb_G,     Key_frb_H,     Key_frb_F,        Key_frb_C_Cedilla,
-   OSM(RightShift), OSM(LeftAlt), Key_Spacebar, Key_frb_ALTGR,
-   ShiftToLayer(FUNCTION)),
-
-  [QWERTY] = KEYMAP_STACKED
-  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
-   Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
-   Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   OSM(LeftControl), Key_Backspace, OSM(LeftGui), OSM(LeftShift),
-   ShiftToLayer(FUNCTION),
-
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
-   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
-                  Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
-   LockLayer(BEPO),  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   OSM(RightShift), OSM(LeftAlt), Key_Spacebar, OSM(RightControl),
+   Key_PrintScreen, Key_frb_Question,   Key_frb_Q,    Key_frb_G,     Key_frb_H,     Key_frb_F,        Key_frb_C_Cedilla,
+   OSM(RightShift), OSM(RightAlt), Key_Backspace, OSM(LeftAlt),
    ShiftToLayer(FUNCTION)),
 
 
@@ -174,24 +159,24 @@ KEYMAPS(
 
    M(MACRO_VERSION_INFO),  ___, Key_Keypad7, Key_Keypad8,   Key_Keypad9,        Key_KeypadSubtract, ___,
    ___,                    ___, Key_Keypad4, Key_Keypad5,   Key_Keypad6,        Key_KeypadAdd,      ___,
-                           ___, Key_Keypad1, Key_Keypad2,   Key_Keypad3,        Key_Equals,         ___,
-   ___,                    ___, Key_Keypad0, Key_KeypadDot, Key_KeypadMultiply, Key_KeypadDivide,   Key_Enter,
+                           ___, Key_Keypad1, Key_Keypad2,   Key_Keypad3,        Key_KeypadDivide,         ___,
+   ___,                    ___, Key_Keypad0, Key_KeypadDot, Key_KeypadMultiply, Key_Enter,   ___,
    ___, ___, ___, ___,
    ___),
 
   [FUNCTION] =  KEYMAP_STACKED
-  (___,      Key_F1,           Key_F2,      Key_F3,     Key_F4,        Key_F5,           XXX,
-   Key_Tab,  ___,              Key_mouseUp, ___,        Key_mouseBtnR, Key_mouseWarpEnd, Key_mouseWarpNE,
-   Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR, Key_mouseBtnL, Key_mouseWarpNW,
-   Key_End,  Key_PrintScreen,  Key_Insert,  ___,        Key_mouseBtnM, Key_mouseWarpSW,  Key_mouseWarpSE,
-   ___, ___, ___, ___,
+  (___,      Key_F1,           Key_F2,      Key_F3,     Key_F4,        Key_F5,           ___,
+   XXX, Key_frb_Quote,              RALT(Key_frb_DeOQuote), RALT(Key_frb_DeCQuote),        Key_frb_DeOQuote, Key_frb_DeCQuote, ___,
+   Key_Home, Key_frb_Dollar,       Key_frb_Oparenthesi, Key_frb_Cparenthesi, Key_frb_Percent, Key_frb_Equals,
+   Key_End,  LSHIFT(Key_frb_Dollar),  RALT(Key_frb_Oparenthesi),  RALT(Key_frb_Cparenthesi),  LSHIFT(Key_frb_Percent), LSHIFT(Key_frb_Equals),  ___,
+   ___, Key_Enter, ___, ___,
    ___,
 
-   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
-   Consumer_PlaySlashPause,    Consumer_ScanNextTrack, ___,     ___,    ___, ___, Key_F12,
-                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              Key_PageUp,
-   LockLayer(QWERTY),          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             ___,    Key_PageDown,
-   ___, ___, ___, ___,
+   ___, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
+   ___, Key_frb_At, Key_frb_Plus, Key_frb_Minus, Key_frb_Slash, Key_frb_Multiply, Key_F12,
+                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow, Consumer_PlaySlashPause,              Key_PageUp,
+   ___,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, Consumer_ScanPreviousTrack, Consumer_ScanNextTrack,    Key_PageDown,
+   ___, ___, Key_Delete, ___,
    ___)
 
   ) // KEYMAPS(
