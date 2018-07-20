@@ -138,14 +138,14 @@ KEYMAPS(
    Key_frb_Z, Key_frb_B,       Key_frb_E_Acute,  Key_frb_P,        Key_frb_O,           Key_frb_E_Grave,     ___,
    Key_Tab,         Key_frb_A,       Key_frb_U,        Key_frb_I,        Key_frb_E,           Key_frb_Comma,
    Key_frb_E_umlaut,  Key_frb_A_Grave, Key_frb_Y,        Key_frb_X,        Key_frb_Period,      Key_frb_K,           Key_Escape,
-   OSM(LeftControl),   Key_Spacebar,  OSM(LeftGui),    OSM(LeftShift),
+   OSM(LeftControl),   Key_Spacebar,  OSM(LeftShift),    Key_LeftGui,
    ShiftToLayer(FUNCTION),
 
    Key_Insert,   LSHIFT(Key_frb_At),         LSHIFT(Key_frb_Plus), LSHIFT(Key_frb_Minus), LSHIFT(Key_frb_Slash), LSHIFT(Key_frb_Multiply), LockLayer(NUMPAD),
    ___,         Key_frb_Circumflex, Key_frb_V,    Key_frb_D,     Key_frb_L,     Key_frb_J,        Key_frb_W,
                       Key_frb_C,          Key_frb_T,    Key_frb_S,     Key_frb_R,     Key_frb_N,        Key_frb_M,
    Key_PrintScreen, Key_frb_Question,   Key_frb_Q,    Key_frb_G,     Key_frb_H,     Key_frb_F,        Key_frb_C_Cedilla,
-   OSM(RightShift), OSM(RightAlt), Key_Backspace, OSM(LeftAlt),
+   OSM(RightAlt), OSM(RightShift), Key_Backspace, OSM(LeftAlt),
    ShiftToLayer(FUNCTION)),
 
 
