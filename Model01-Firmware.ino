@@ -298,12 +298,12 @@ void setup() {
     // LEDControl provides support for other LED modes
     &LEDControl,
 
+    &LEDOff,
+
     // The rainbow wave effect lights up your keyboard with all the colors of a rainbow
     // and slowly moves the rainbow across your keyboard
     &LEDRainbowWaveEffect,
-
-    &LEDOff,
-
+    
     // The numpad plugin is responsible for lighting up the 'numpad' mode
     // with a custom LED effect
     &NumPad,
@@ -340,6 +340,9 @@ void setup() {
 
   // We want the keyboard to be able to wake the host up from suspend.
   HostPowerManagement.enableWakeup();
+
+  // Drop double tap sticky keys
+  OneShot.double_tap_sticky = false;
 }
 
 /** loop is the second of the standard Arduino sketch functions.
